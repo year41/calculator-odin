@@ -7,5 +7,7 @@ const multiply = (num1, num2) => num1 * num2;
 const divide = (num1, num2) => num1 / num2;
 
 let num1 = 0;
-let num2 = 0
+let num2 = 0;
 let operator = null;
+
+const operate = (num1, operator, num2) => operator(num1, num2);
