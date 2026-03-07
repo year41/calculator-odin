@@ -1,0 +1,52 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: aliceblue;
+    margin: 30px;
+}
+
+h1 {
+    color: gray;
+}
+
+button {
+    height: 60px;
+    width: 60px;
+    font-size: x-large;
+    text-align: center;
+    align-content: center;
+    /* border-radius: 16px; */
+    /* border: 1px solid rgb(191, 160, 119); */
+}
+
+#container {
+    padding: 16px;
+    border: 1px solid white;
+    background-color: sandybrown;
+    width: 240px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#keyboard {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#delete {
+    width: 120px;
+}
+
+#display {
+    margin-bottom: 12px;
+    height: 50px;
+    /* border: 1px solid black; */
+    flex: 100%;
+    background-color: aliceblue;
+    text-align: end;
+    align-content: center;
+    padding-right: 4px;
+    font-size: xx-large;
+}
