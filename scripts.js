@@ -3,18 +3,28 @@ const subtract = (firstNum, secondNum) => firstNum - secondNum;
 const multiply = (firstNum, secondNum) => firstNum * secondNum;
 const divide = (firstNum, secondNum) => firstNum / secondNum;
 
-let firstNum = 0;
-let secondNum = 0;
-let operator = null;
+let firstNum = "";
+let secondNum = "";
+let operator = null
 
-const operate = (firstNum, operator, secondNum) => operator(firstNum, secondNum);
+const assignOperator = function (btn, sign) {
+    btn.addEventListener("click", () => {
+        if (secondNum !== "") (firstNum = secondNum);
+        secondNum = "";
+        operator = sign;
+    });
+};
+
+const operate = (firstNum, operator, secondNum) => operator(Number(firstNum), Number(secondNum));
 
 const display = document.querySelector("#display");
 
 const displayNum = function (btn, num) {
-    btn.addEventListener("click", (event) => {
-        if (display.textContent === "0") (display.textContent = "");
-        if (display.textContent.length === 11 ) return "";
+    btn.addEventListener("click", () => {
+        if (display.textContent === '0') (display.textContent = "");
+        if (display.textContent.length === 11) return "";
+        if (secondNum === "") (display.textContent = "");
+        secondNum += num;
         display.textContent += num;
     });
 }
@@ -48,3 +58,15 @@ displayNum(num1, 1);
 
 const zero = document.querySelector("#zero");
 displayNum(zero, 0);
+
+
+const btnAdd = document.querySelector("#add");
+assignOperator(btnAdd, add);
+
+const btnEqual = document.querySelector("#equal");
+btnEqual.addEventListener("click", () => {
+    firstNum = display.textContent = operate(firstNum, operator, secondNum);
+    operator = null
+    secondNum = "";
+    firstNum;
+});
