@@ -59,9 +59,17 @@ displayNum(num1, 1);
 const zero = document.querySelector("#zero");
 displayNum(zero, 0);
 
-
 const btnAdd = document.querySelector("#add");
 assignOperator(btnAdd, add);
+
+const btnSubtract = document.querySelector("#subtract");
+assignOperator(btnSubtract, subtract);
+
+const btnMultiply = document.querySelector("#multiply");
+assignOperator(btnMultiply, multiply);
+
+const btnDivide = document.querySelector("#divide");
+assignOperator(btnDivide, divide);
 
 const btnEqual = document.querySelector("#equal");
 btnEqual.addEventListener("click", () => {
