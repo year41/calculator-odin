@@ -78,3 +78,11 @@ btnEqual.addEventListener("click", () => {
     secondNum = "";
     firstNum;
 });
+
+const allClear = document.querySelector("#ac");
+allClear.addEventListener("click", () => {
+    firstNum = "";
+    secondNum = "";
+    operator = null
+    display.textContent = 0
+});
