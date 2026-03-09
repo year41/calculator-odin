@@ -9,8 +9,10 @@ let operator = null;
 
 const assignOperator = function (btn, sign) {
     btn.addEventListener("click", () => {
+        if (secondNum === "") return operator = sign;
         if (secondNum !== "" && operator !== null) {
-            firstNum = display.textContent = operate(firstNum, operator, secondNum);
+            firstNum = operate(firstNum, operator, secondNum);
+            display.textContent = firstNum;
         } else {
             firstNum = secondNum;
         };
@@ -77,10 +79,10 @@ assignOperator(btnDivide, divide);
 
 const btnEqual = document.querySelector("#equal");
 btnEqual.addEventListener("click", () => {
-    firstNum = display.textContent = operate(firstNum, operator, secondNum);
-    operator = null
+    firstNum = operate(firstNum, operator, secondNum);
+    display.textContent = firstNum;
+    operator = null;
     secondNum = "";
-    // firstNum;
 });
 
 const allClear = document.querySelector("#ac");
