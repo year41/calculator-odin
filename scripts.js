@@ -14,6 +14,7 @@ const display = document.querySelector("#display");
 const displayNum = function (btn, num) {
     btn.addEventListener("click", (event) => {
         if (display.textContent === "0") (display.textContent = "");
+        if (display.textContent.length === 11 ) return "";
         display.textContent += num;
     });
 }
