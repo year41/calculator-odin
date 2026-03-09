@@ -5,11 +5,15 @@ const divide = (firstNum, secondNum) => firstNum / secondNum;
 
 let firstNum = "";
 let secondNum = "";
-let operator = null
+let operator = null;
 
 const assignOperator = function (btn, sign) {
     btn.addEventListener("click", () => {
-        if (secondNum !== "") (firstNum = secondNum);
+        if (secondNum !== "" && operator !== null) {
+            firstNum = display.textContent = operate(firstNum, operator, secondNum);
+        } else {
+            firstNum = secondNum;
+        };
         secondNum = "";
         operator = sign;
     });
@@ -21,11 +25,11 @@ const display = document.querySelector("#display");
 
 const displayNum = function (btn, num) {
     btn.addEventListener("click", () => {
-        if (display.textContent === '0') (display.textContent = "");
         if (display.textContent.length === 11) return "";
+        if (display.textContent === '0') (display.textContent = "");
         if (secondNum === "") (display.textContent = "");
         secondNum += num;
-        display.textContent += num;
+        display.textContent = secondNum;
     });
 }
 
@@ -76,7 +80,7 @@ btnEqual.addEventListener("click", () => {
     firstNum = display.textContent = operate(firstNum, operator, secondNum);
     operator = null
     secondNum = "";
-    firstNum;
+    // firstNum;
 });
 
 const allClear = document.querySelector("#ac");
@@ -87,6 +91,8 @@ allClear.addEventListener("click", () => {
     display.textContent = 0;
 });
 
+//Basic backspace functionality  working, but have some logical
+// bug that need to be fixed, after used can't do any operations...
 const backspace = document.querySelector("#backspace");
 backspace.addEventListener("click", () => {
     secondNum = secondNum.slice(0, -1);
