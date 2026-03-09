@@ -83,6 +83,14 @@ const allClear = document.querySelector("#ac");
 allClear.addEventListener("click", () => {
     firstNum = "";
     secondNum = "";
-    operator = null
-    display.textContent = 0
+    operator = null;
+    display.textContent = 0;
+});
+
+const backspace = document.querySelector("#backspace");
+backspace.addEventListener("click", () => {
+    secondNum = secondNum.slice(0, -1);
+    display.textContent = secondNum;
+    console.log("first", firstNum);
+    console.log("second", secondNum);
 });
