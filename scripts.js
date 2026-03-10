@@ -43,6 +43,7 @@ const displayOverflow = function (num) {
 const displayNum = function (btn, num) {
     btn.addEventListener("click", () => {
         display.style.fontSize = "28px";
+        if (num === "." && secondNum.includes(".")) return "";
         if (secondNum === "0") (secondNum = "");
         if (secondNum.length === 11) return "";
         if (secondNum === "") (display.textContent = "");
@@ -80,6 +81,9 @@ displayNum(num1, 1);
 
 const zero = document.querySelector("#zero");
 displayNum(zero, 0);
+
+const dot = document.querySelector("#dot");
+displayNum(dot, ".");
 
 const btnAdd = document.querySelector("#add");
 assignOperator(btnAdd, add);
