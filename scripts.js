@@ -11,6 +11,11 @@ const assignOperator = function (btn, sign) {
     btn.addEventListener("click", () => {
         if (secondNum === "") return operator = sign;
         if (secondNum !== "" && operator !== null) {
+            if (operator === divide && secondNum === "0") {
+                display.style.fontSize = "14px";
+                display.textContent = `Did you really try to divide 0!? Try again ${firstNum} ÷ ?`;
+                return;
+            };
             firstNum = operate(firstNum, operator, secondNum);
             firstNum = displayOverflow(firstNum);
             display.textContent = firstNum;
@@ -37,6 +42,7 @@ const displayOverflow = function (num) {
 
 const displayNum = function (btn, num) {
     btn.addEventListener("click", () => {
+        display.style.fontSize = "28px";
         if (secondNum === "0") (secondNum = "");
         if (secondNum.length === 11) return "";
         if (secondNum === "") (display.textContent = "");
@@ -89,6 +95,11 @@ assignOperator(btnDivide, divide);
 
 const btnEqual = document.querySelector("#equal");
 btnEqual.addEventListener("click", () => {
+    if (operator === divide && secondNum === "0") {
+        display.style.fontSize = "14px";
+        display.textContent = `Did you really try to divide 0!? Try again ${firstNum} ÷ ?`;
+        return;
+    };
     if (display.textContent === "0" || firstNum === "" || secondNum === "") {
         return display.textContent = "# ERROR";
     };
@@ -108,7 +119,7 @@ allClear.addEventListener("click", () => {
 });
 
 //Basic backspace functionality  working, but have some logical
-// bug that need to be fixed, after used can't do any operations...
+// bug that need to be fixed, after used can't t any operations...
 const backspace = document.querySelector("#backspace");
 backspace.addEventListener("click", () => {
     secondNum = secondNum.slice(0, -1);
