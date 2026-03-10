@@ -89,6 +89,9 @@ assignOperator(btnDivide, divide);
 
 const btnEqual = document.querySelector("#equal");
 btnEqual.addEventListener("click", () => {
+    if (display.textContent === "0" || firstNum === "" || secondNum === "") {
+        return display.textContent = "# ERROR";
+    };
     firstNum = operate(firstNum, operator, secondNum);
     firstNum = displayOverflow(firstNum);
     display.textContent = firstNum;
