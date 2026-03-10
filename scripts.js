@@ -122,12 +122,12 @@ allClear.addEventListener("click", () => {
     display.textContent = 0;
 });
 
-//Basic backspace functionality  working, but have some logical
-// bug that need to be fixed, after used can't t any operations...
 const backspace = document.querySelector("#backspace");
 backspace.addEventListener("click", () => {
     secondNum = secondNum.slice(0, -1);
-    display.textContent = secondNum;
-    console.log("first", firstNum);
-    console.log("second", secondNum);
+    if (secondNum !== "") {
+        display.textContent = secondNum;
+    } else {
+        display.textContent = "0";
+    };
 });
