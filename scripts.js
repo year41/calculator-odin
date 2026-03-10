@@ -12,6 +12,7 @@ const assignOperator = function (btn, sign) {
         if (secondNum === "") return operator = sign;
         if (secondNum !== "" && operator !== null) {
             firstNum = operate(firstNum, operator, secondNum);
+            firstNum = displayOverflow(firstNum);
             display.textContent = firstNum;
         } else {
             firstNum = secondNum;
@@ -25,10 +26,19 @@ const operate = (firstNum, operator, secondNum) => operator(Number(firstNum), Nu
 
 const display = document.querySelector("#display");
 
+const displayOverflow = function (num) {
+    if (num.toString().length > 11) {
+        const shortNum = num.toPrecision(6);
+        return shortNum;
+    } else {
+        return num;
+    };
+};
+
 const displayNum = function (btn, num) {
     btn.addEventListener("click", () => {
-        if (display.textContent.length === 11) return "";
-        if (display.textContent === '0') (display.textContent = "");
+        if (secondNum === "0") (secondNum = "");
+        if (secondNum.length === 11) return "";
         if (secondNum === "") (display.textContent = "");
         secondNum += num;
         display.textContent = secondNum;
@@ -80,6 +90,7 @@ assignOperator(btnDivide, divide);
 const btnEqual = document.querySelector("#equal");
 btnEqual.addEventListener("click", () => {
     firstNum = operate(firstNum, operator, secondNum);
+    firstNum = displayOverflow(firstNum);
     display.textContent = firstNum;
     operator = null;
     secondNum = "";
