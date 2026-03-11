@@ -134,7 +134,7 @@ backspace.addEventListener("click", () => {
 
 const negative = document.querySelector("#negative");
 negative.addEventListener("click", () => {
-    if (secondNum === "0") return "";
+    if (secondNum === "0" || secondNum === "") return "";
     if (secondNum.startsWith("-")) {
         secondNum = secondNum.slice(1, secondNum.length);
     } else {
