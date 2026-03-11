@@ -154,3 +154,26 @@ display.addEventListener("keydown", (event) => {
     if (event.key === "Backspace") return backspace.click();
     return "";
 });
+
+function getRandomCol() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    return `rgb(${r}, ${g}, ${b})`;
+};
+
+const randomCol = document.querySelector("#rndm");
+randomCol.addEventListener("click", () => {
+    const head1 = document.querySelector("h1");
+    head1.style.color = getRandomCol();
+
+    const baseCalculator = document.getElementById("container");
+    baseCalculator.style.backgroundColor = getRandomCol();
+
+    const allButtons = document.querySelectorAll("button");
+    allButtons.forEach(btn => {
+        btn.style.backgroundColor = getRandomCol();
+        btn.style.color = getRandomCol();
+    });
+});

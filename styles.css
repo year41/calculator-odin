@@ -30,13 +30,9 @@ button {
     flex-wrap: wrap;
 }
 
-#keyboard {
+#keypad {
     display: flex;
     flex-wrap: wrap;
-}
-
-#backspace {
-    width: 120px;
 }
 
 #display {
