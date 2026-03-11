@@ -42,6 +42,7 @@ button {
 #display {
     margin-bottom: 12px;
     height: 50px;
+    max-width: 236px;
     /* border: 1px solid black; */
     flex: 100%;
     background-color: aliceblue;

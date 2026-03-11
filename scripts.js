@@ -50,7 +50,7 @@ const displayNum = function (btn, num) {
         secondNum += num;
         display.textContent = secondNum;
     });
-}
+};
 
 const num9 = document.querySelector("#num9");
 displayNum(num9, 9);
@@ -130,4 +130,27 @@ backspace.addEventListener("click", () => {
     } else {
         display.textContent = "0";
     };
+});
+
+display.addEventListener("keydown", (event) => {
+    event.preventDefault();
+    if (event.key === "9") return num9.click();
+    if (event.key === "8") return num8.click();
+    if (event.key === "7") return num7.click();
+    if (event.key === "6") return num6.click();
+    if (event.key === "5") return num5.click();
+    if (event.key === "4") return num4.click();
+    if (event.key === "3") return num3.click();
+    if (event.key === "2") return num2.click();
+    if (event.key === "1") return num1.click();
+    if (event.key === "0") return zero.click();
+    if (event.key === ".") return dot.click();
+    if (event.key === "+") return btnAdd.click();
+    if (event.key === "-") return btnSubtract.click();
+    if (event.key === "*") return btnMultiply.click();
+    if (event.key === "/") return btnDivide.click();
+    if (event.key === "=") return btnEqual.click();
+    if (event.key === "Escape") return allClear.click();
+    if (event.key === "Backspace") return backspace.click();
+    return "";
 });
