@@ -132,6 +132,17 @@ backspace.addEventListener("click", () => {
     };
 });
 
+const negative = document.querySelector("#negative");
+negative.addEventListener("click", () => {
+    if (secondNum === "0") return "";
+    if (secondNum.startsWith("-")) {
+        secondNum = secondNum.slice(1, secondNum.length);
+    } else {
+        secondNum = `-${secondNum}`;    
+    }
+    display.textContent = secondNum;
+})
+
 display.addEventListener("keydown", (event) => {
     event.preventDefault();
     if (event.key === "9") return num9.click();
