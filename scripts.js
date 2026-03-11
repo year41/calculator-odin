@@ -149,7 +149,7 @@ display.addEventListener("keydown", (event) => {
     if (event.key === "-") return btnSubtract.click();
     if (event.key === "*") return btnMultiply.click();
     if (event.key === "/") return btnDivide.click();
-    if (event.key === "=") return btnEqual.click();
+    if (event.key === "=" || event.key === "Enter") return btnEqual.click();
     if (event.key === "Escape") return allClear.click();
     if (event.key === "Backspace") return backspace.click();
     return "";
