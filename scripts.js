@@ -104,7 +104,7 @@ btnEqual.addEventListener("click", () => {
         display.textContent = `Did you really try to divide 0!? Try again ${firstNum} ÷ ?`;
         return;
     };
-    if (display.textContent === "0" || firstNum === "" || secondNum === "") {
+    if (operator !== null && secondNum === "") {
         return display.textContent = "# ERROR";
     };
     firstNum = operate(firstNum, operator, secondNum);
